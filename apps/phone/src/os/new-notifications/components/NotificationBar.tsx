@@ -34,7 +34,7 @@ import {cn} from "@utils/css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: "transparent",
     height: '30px',
     width: '100%',
     color: theme.palette.text.primary,

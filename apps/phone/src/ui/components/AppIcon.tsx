@@ -16,26 +16,26 @@ const useStyles = makeStyles<Theme, { color: string; backgroundColor: string }>(
   avatar: {
     '&:hover': {
       background: ({ backgroundColor }) => {
-        return `linear-gradient(45deg, ${darken(backgroundColor, 0.25)} 10%, ${backgroundColor} 90%)`;
+        return `linear-gradient(45deg, ${darken(backgroundColor, 0.35)} 10%, ${backgroundColor} 90%)`;
       },
     },
     background: ({ backgroundColor }) => {
       return `linear-gradient(45deg, ${darken(backgroundColor, 0.2)} 20%, ${backgroundColor} 90%)`;
     },
     color: ({ color }) => color,
-    boxShadow: theme.shadows[2],
+    // boxShadow: theme.shadows[2],
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 18,
-    width: theme.spacing(8),
-    height: theme.spacing(8),
+    width: theme.spacing(10),
+    height: theme.spacing(10),
     fontSize: theme.typography.h4.fontSize,
   },
   icon: {
     fontSize: theme.typography.h4.fontSize,
-    width: theme.spacing(8),
-    height: theme.spacing(8),
+    width: theme.spacing(10),
+    height: theme.spacing(10),
   },
   tooltip: {
     fontSize: 12,

@@ -33,3 +33,5 @@ sv_npwd.log
 
 # Temporary image/audio storage
 uploads
+pnpm-lock.yaml
+/apps/phone/node_modules.old
