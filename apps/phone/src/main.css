@@ -24,3 +24,11 @@ a:hover,
 a:active {
     text-decoration: none;
 }
+
+img {
+  user-select: none;
+  -webkit-user-select: none; /* Para o Safari e Chrome */
+  -moz-user-select: none;    /* Para o Firefox */
+  -ms-user-select: none;     /* Para o Internet Explorer/Edge */
+  -o-user-select: none;      /* Para navegadores antigos da Opera */
+}

@@ -1,33 +1,37 @@
 import React from 'react';
 import { AppWrapper } from '@ui/components';
-import { Box } from '@mui/material';
+import { Box, styled } from '@mui/material';
 import { GridMenu } from '@ui/components/GridMenu';
 import { useApps } from '@os/apps/hooks/useApps';
 import { useExternalApps } from '@common/hooks/useExternalApps';
+import { Link } from 'react-router-dom';
 
+const BottomHomeButtons = styled(Box)`
+  border-radius: 1.9rem;
+`;
 export const HomeApp: React.FC = () => {
   const { apps } = useApps();
   const externalApps = useExternalApps();
   return (
     <AppWrapper>
-      <Box component="div" mt={6} px={1}>
+      <Box component="div" mt={3} px={1.6}>
         {apps && <GridMenu xs={3} items={[...apps, ...externalApps]} />}
       </Box>
 
-      {/*<div className="absolute bottom-5 left-8 right-8">
-        <div className="h-20 w-full rounded-md bg-gray-200/30 backdrop-blur">
+      <div className="absolute bottom-0 left-3 right-3">
+        <BottomHomeButtons className="h-24 w-full bg-gray-200/30">
           {apps &&
             apps.slice(0, 4).map((app) => (
               <div className="float-left h-full w-1/4" key={app.id}>
                 <div className="flex h-full w-full items-center justify-center">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-md bg-gray-200/50 backdrop-blur">
+                  <Link to={`${app.path}`} className="flex h-16 w-16 items-center justify-center">
                     {app.icon}
-                  </div>
+                  </Link>
                 </div>
               </div>
             ))}
-        </div>
-      </div>*/}
+        </BottomHomeButtons>
+      </div>
     </AppWrapper>
   );
 };

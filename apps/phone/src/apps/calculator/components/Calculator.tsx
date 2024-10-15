@@ -19,7 +19,7 @@ const StyledFab = styled(Fab)({
 });
 
 const StyledResultWrapper = styled(Box)<{ length: number }>(({ theme, length }) => ({
-  minHeight: '7rem',
+  minHeight: '12rem',
   fontSize: length < 9 ? theme.typography.h2.fontSize : getFontSize(length),
   textAlign: 'right',
   overflow: 'hidden',
@@ -30,6 +30,7 @@ const StyledResultWrapper = styled(Box)<{ length: number }>(({ theme, length }) 
 const StyledCalcBtn = styled(CalculatorButton)(({ theme }) => ({
   fontSize: theme.typography.h5.fontSize,
   padding: theme.spacing(2),
+  backgroundColor: "#00000044",
   color: theme.palette.text.primary,
 }));
 
@@ -81,7 +82,7 @@ export const Calculator: React.FC = () => {
 
   return (
     <Box display="flex" flexDirection="column">
-      <StyledResultWrapper flexGrow={1} component={Paper} p={2} length={resultStr.length}>
+      <StyledResultWrapper flexGrow={1} component={Paper} p={4} pt={18} length={resultStr.length}>
         <StyledFab size="small" onClick={handleCopyClipboard}>
           <FileCopyIcon />
         </StyledFab>

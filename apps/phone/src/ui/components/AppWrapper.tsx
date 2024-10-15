@@ -12,6 +12,7 @@ export const AppWrapper: React.FC<AppWrapperTypes> = ({
       {...props}
       style={{
         padding: 0,
+        paddingTop: 15,
         margin: 0,
         width: '100%',
         height: '100%',

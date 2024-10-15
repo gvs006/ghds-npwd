@@ -47,7 +47,7 @@ import BrowserIcon from '../icons/material/app/BROWSER';
 import MessagesIcon from '../icons/material/app/MESSAGES';
 import DarkchatIcon from '../icons/material/app/DARKCHAT';
 import ContactIcon from '../icons/material/app/CONTACTS';
-import Calculator from '../icons/material/app/CALCULATOR';
+import CalculatorIcon from '../icons/material/app/CALCULATOR';
 import SettingsIcon from '../icons/material/app/SETTINGS';
 import MatchIcon from '../icons/material/app/MATCH';
 import TwitterIcon from '../icons/material/app/TWITTER';
@@ -55,11 +55,15 @@ import MarketplaceIcon from '../icons/material/app/MARKETPLACE';
 import NotesIcon from '../icons/material/app/NOTES';
 import Camera from '../icons/material/app/CAMERA';
 import ExampleIcon from '../icons/material/app/EXAMPLE';
+import ZapIcon from '../icons/material/app/ZAP';
+import WeatherIcon from '../icons/material/app/WEATHER';
+import BankIcon from '../icons/material/app/BANK';
+import { BankApp } from '@apps/bank/components/BankApp';
 
 export interface IAppConfig {
   id: string;
   nameLocale: string;
-  backgroundColor: string;
+  backgroundColor?: string;
   color: string;
   path: string;
   disable?: boolean;
@@ -81,7 +85,7 @@ export const APPS: IAppConfig[] = [
   {
     id: 'DIALER',
     nameLocale: 'APPS_DIALER',
-    backgroundColor: DIALER_APP_PRIMARY_COLOR,
+    backgroundColor: "rgba(0, 0, 0, 0)",
     icon: <DialerAppIcon />,
     color: DIALER_APP_TEXT_COLOR,
     path: '/phone',
@@ -90,7 +94,6 @@ export const APPS: IAppConfig[] = [
   {
     id: 'BROWSER',
     nameLocale: 'BROWSER.NAME',
-    backgroundColor: blue['300'],
     path: '/browser',
     icon: <BrowserIcon />,
     color: common.white,
@@ -102,7 +105,7 @@ export const APPS: IAppConfig[] = [
     id: 'MESSAGES',
     nameLocale: 'APPS_MESSAGES',
     icon: <MessagesIcon />,
-    backgroundColor: MESSAGES_APP_PRIMARY_COLOR,
+    backgroundColor: "rgba(0, 0, 0, 0)",
     color: MESSAGES_APP_TEXT_COLOR,
     path: '/messages',
     Route: () => (
@@ -113,7 +116,7 @@ export const APPS: IAppConfig[] = [
     id: 'DARKCHAT',
     nameLocale: 'APPS_DARKCHAT',
     icon: <DarkchatIcon />,
-    backgroundColor: DARKCHAT_APP_PRIMARY_COLOR,
+    backgroundColor: "#ffffff",
     color: DARKCHAT_APP_TEXT_COLOR,
     path: '/darkchat',
     Route: () => (
@@ -123,7 +126,7 @@ export const APPS: IAppConfig[] = [
   {
     id: 'CONTACTS',
     nameLocale: 'APPS_CONTACTS',
-    backgroundColor: CONTACTS_APP_PRIMARY_COLOR,
+    backgroundColor: 'rgba(0, 0, 0, 0)',
     icon: <ContactIcon />,
     color: CONTACTS_APP_TEXT_COLOR,
     path: '/contacts',
@@ -134,8 +137,8 @@ export const APPS: IAppConfig[] = [
   {
     id: 'CALCULATOR',
     nameLocale: 'APPS_CALCULATOR',
-    icon: <Calculator />,
-    backgroundColor: purple[500],
+    icon: <CalculatorIcon />,
+    backgroundColor: "rgba(0, 0, 0, 0)",
     color: grey[50],
     path: '/calculator',
     Route: () => (
@@ -146,7 +149,7 @@ export const APPS: IAppConfig[] = [
     id: 'SETTINGS',
     nameLocale: 'APPS_SETTINGS',
     icon: <SettingsIcon />,
-    backgroundColor: '#383838',
+    backgroundColor: "rgba(0, 0, 0, 0)",
     color: grey[50],
     path: '/settings',
     Route: () => (
@@ -157,7 +160,7 @@ export const APPS: IAppConfig[] = [
     id: 'MATCH',
     nameLocale: 'APPS_MATCH',
     icon: <MatchIcon />,
-    backgroundColor: MATCH_APP_PRIMARY_COLOR,
+    backgroundColor: "rgba(0,0,0,0)",
     color: MATCH_APP_TEXT_COLOR,
     path: '/match',
     Route: () => <AppRoute id="MATCH" path="/match" component={MatchApp} emitOnOpen={false} />,
@@ -193,7 +196,7 @@ export const APPS: IAppConfig[] = [
     id: 'NOTES',
     nameLocale: 'APPS_NOTES',
     icon: <NotesIcon />,
-    backgroundColor: NOTES_APP_PRIMARY_COLOR,
+    backgroundColor: "rgba(0, 0, 0, 0)",
     color: NOTES_APP_ICON_COLOR,
     path: '/notes',
     Route: () => <AppRoute id="NOTES" path="/notes" component={NotesApp} emitOnOpen={false} />,
@@ -207,6 +210,28 @@ export const APPS: IAppConfig[] = [
     path: '/camera',
     Route: () => <AppRoute id="CAMERA" path="/camera" component={CameraApp} emitOnOpen={false} />,
   },
+  {
+    id: 'WEATHER',
+    nameLocale: 'APPS_WEATHER',
+    icon: <WeatherIcon />,
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    color: common.white,
+    path: '/test',
+    // Route: () => <AppRoute id="EXAMPLE" path="/example" component={ExampleAppWrapper} emitOnOpen={false} />
+    Route: () => <div></div>,
+
+  },
+  {
+    id: 'BANK',
+    nameLocale: 'APPS_BANK',
+    icon: <BankIcon />,
+    backgroundColor: '#008000',
+    color: common.white,
+    path: '/bank',
+    // Route: () => <AppRoute id="EXAMPLE" path="/example" component={ExampleAppWrapper} emitOnOpen={false} />
+    Route: () => <AppRoute id="BANK" path="/bank" component={BankApp} emitOnOpen={false}></AppRoute>,
+
+  },
 ];
 
 // Example app only in dev
@@ -214,7 +239,7 @@ if (import.meta.env.DEV) {
   APPS.push({
     id: 'EXAMPLE',
     nameLocale: 'APPS_EXAMPLE',
-    icon: <ExampleIcon />,
+    icon: <ExampleIcon/>,
     backgroundColor: blue[500],
     color: blue[50],
     path: '/example',
