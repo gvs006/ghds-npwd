@@ -26,7 +26,7 @@ export const PhoneThemes: Record<string, ThemeOptions> = {
   },
   'default-light': {
     typography: {
-      fontFamily: "'SegoeUI', 'Roboto', 'Arial', sans-serif",
+      fontFamily: "'Roboto', 'Arial', sans-serif",
     },
     palette: {
       mode: 'light',

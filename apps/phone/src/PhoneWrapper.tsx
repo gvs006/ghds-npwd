@@ -36,7 +36,7 @@ const PhoneWrapper: React.FC<PhoneWrapperProps> = ({ children }) => {
           />
           <div
             id="phone"
-            className="PhoneScreen bg-neutral-100 dark:bg-neutral-900"
+            className="PhoneScreen bg-[#f2f2f7] dark:bg-black"
             style={{
               backgroundImage: pathname === '/' && wallpaper,
             }}
