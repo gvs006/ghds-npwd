@@ -28,14 +28,14 @@ const useStyles = makeStyles<Theme, { color: string; backgroundColor: string }>(
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 18,
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+    width: theme.spacing(9.2),
+    height: theme.spacing(9.2),
     fontSize: theme.typography.h4.fontSize,
   },
   icon: {
     fontSize: theme.typography.h4.fontSize,
-    width: theme.spacing(10),
-    height: theme.spacing(10),
+    width: theme.spacing(9),
+    height: theme.spacing(9),
   },
   tooltip: {
     fontSize: 12,

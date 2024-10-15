@@ -47,7 +47,7 @@ import BrowserIcon from '../icons/material/app/BROWSER';
 import MessagesIcon from '../icons/material/app/MESSAGES';
 import DarkchatIcon from '../icons/material/app/DARKCHAT';
 import ContactIcon from '../icons/material/app/CONTACTS';
-import Calculator from '../icons/material/app/CALCULATOR';
+import CalculatorIcon from '../icons/material/app/CALCULATOR';
 import SettingsIcon from '../icons/material/app/SETTINGS';
 import MatchIcon from '../icons/material/app/MATCH';
 import TwitterIcon from '../icons/material/app/TWITTER';
@@ -137,7 +137,7 @@ export const APPS: IAppConfig[] = [
   {
     id: 'CALCULATOR',
     nameLocale: 'APPS_CALCULATOR',
-    icon: <Calculator />,
+    icon: <CalculatorIcon />,
     backgroundColor: "rgba(0, 0, 0, 0)",
     color: grey[50],
     path: '/calculator',

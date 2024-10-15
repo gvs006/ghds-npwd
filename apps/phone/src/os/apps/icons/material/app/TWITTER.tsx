@@ -1,12 +1,25 @@
 import React from 'react';
 import { Bird } from 'lucide-react';
+import { Box, styled } from '@mui/material';
+import img from '../../../../../../src/apps/imgs/twitter.png';
 
+
+const TwitterIconStyle = styled(Box)`
+border-radius: 18px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    z-index: 20;
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+  }
+`
 const TwitterIcon: React.FC = () => (
-  
-<svg width="41" height="33" viewBox="0 0 41 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M36.1321 8.61639C35.6321 31.6164 14.1321 37.1164 0.13208 29.6164C6.80572 30.3885 8.60621 28.5042 12.6321 26.1163C7.11189 24.9975 6.24536 23.2314 4.63208 20.1163C5.9226 20.3637 6.80199 20.3605 8.63208 20.1163C3.64066 18.1498 2.39648 16.1153 1.63208 11.6163C3.17516 12.3707 4.0406 12.8075 5.63208 12.6164C0.63208 9.61633 1.63208 4.11633 3.13208 1.61644C8.13208 8.11644 13.7196 9.74729 20.1321 10.6164C18.1321 0.616391 29.1321 -2.38356 34.1321 2.61639C36.3646 2.10343 37.5587 1.62799 39.6321 0.616386C38.3892 3.20077 37.6193 4.46174 35.6321 5.11639C37.9241 4.98755 38.817 4.88757 40.6321 4.11639C39.1172 6.01413 38.271 7.07222 36.1321 8.61639Z" fill="white"/>
-</svg>
+    <TwitterIconStyle>
+      <img src={img} width={100} height={100} alt="Twitter Icon" />
+    </TwitterIconStyle>
+  );
 
-);
 
 export default TwitterIcon;

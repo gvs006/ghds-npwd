@@ -1,17 +1,15 @@
-import React from 'react';
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Router, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import { usePhone } from '@os/phone/hooks/usePhone';
-import { ChevronLeft, Circle, LayoutGrid, Minus } from 'lucide-react';
 import { Box, styled } from '@mui/material';
 
 const HomeButton = styled(Box)`
-  width: 10vw;
-  height: 1vh;
+  width: 145px;
+  height: 7px;
   background-color: #ccc;
   border-radius: 0.5rem;
-  margin: 2.1vh auto;
   position: fixed;
-  bottom: 11vh;
+  top: 882px;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -24,34 +22,44 @@ const HomeButton = styled(Box)`
 `
 
 export const Navigation: React.FC = () => {
+  const [isVisible, setisVisible] = useState(true)
   const history = useHistory();
   const { isExact } = useRouteMatch('/');
   const { closePhone } = usePhone();
+  const location = useLocation();
 
-  const handleGoBackInHistory = () => {
-    history.goBack();
-  };
+  // const handleGoBackInHistory = () => {
+  //   history.goBack();
+  // };
 
   const handleGoToMenu = () => {
     if (isExact) return;
     history.push('/');
   };
 
-  return (
-    <div className="bg-transparent dark:bg-transparent w-full h-14 px-12">
-      
-        <button onClick={handleGoToMenu}>
-        <HomeButton>
-          {/* <Minus className="text-neutral-400 hover:dark:text-neutral-100 h-6 w-full hover:text-neutral-900 " /> */}
-          </HomeButton>
+  useEffect(() => {
+    if(location.pathname == '/') {
+      setisVisible(false)
+    } else {
+      setisVisible(true)
+    }
 
+  }, [location.pathname])
+  
+  return (
+    <>
+      { isVisible &&
+        <button className="text-neutral-400 hover:dark:text-neutral-100 h-2 w-full hover:text-neutral-900 " onClick={handleGoToMenu}>
+        <HomeButton />
         </button>
+      }
+        
         {/* <button onClick={handleGoToMenu}>
           <Circle className="text-neutral-400 hover:dark:text-neutral-100 h-6 w-6 hover:text-neutral-900 " />
         </button>
         <button onClick={handleGoBackInHistory}>
           <ChevronLeft className="text-neutral-400 hover:dark:text-neutral-100 hover:text-neutral-900 h-6 w-6" />
         </button> */}
-    </div>
+    </>
   );
 };

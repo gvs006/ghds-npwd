@@ -12,8 +12,7 @@ import {
   Button,
 } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import SignalIcon from '@mui/icons-material/SignalCellular3Bar';
-import Battery90Icon from '@mui/icons-material/Battery90';
+
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 import Default from '../../../config/default.json';
 import { NotificationItem } from './NotificationItem';
@@ -29,18 +28,18 @@ import { useRecoilValue } from 'recoil';
 import { useApp } from '@os/apps/hooks/useApps';
 import { UnreadNotificationBarProps } from '@typings/notifications';
 import { useNotification } from '../useNotification';
-import {BatteryFull, SignalMedium} from "lucide-react";
-import {cn} from "@utils/css";
+import batteryImg from '../../../apps/imgs/battery.png';
+import { cn } from '@utils/css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: "transparent",
-    height: '30px',
+    backgroundColor: 'transparent',
+    height: '50px',
     width: '100%',
     color: theme.palette.text.primary,
     zIndex: 99,
-    paddingLeft: '15px',
-    paddingRight: '15px',
+    paddingLeft: '30px',
+    paddingRight: '30px',
     position: 'relative',
     '&:hover': {
       cursor: 'pointer',
@@ -51,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     position: 'relative',
-    lineHeight: '30px',
+    lineHeight: '50px',
     color: theme.palette.text.primary,
   },
   icon: {
@@ -62,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     width: '100%',
     position: 'absolute',
-    top: '30px',
+    top: '50px',
     zIndex: 98,
   },
   closeNotifBtn: {
@@ -114,7 +113,9 @@ const UnreadNotificationListItem: React.FC<UnreadNotificationListItemProps> = ({
 
 export const NotificationBar = () => {
   const classes = useStyles();
-  const time = usePhoneTime();
+  const time = usePhoneTime(); 
+  // const time = "14:22"; //  mock dev ghds
+
   const [barCollapsed, setBarUncollapsed] = useNavbarUncollapsed();
 
   const unreadNotificationIds = useUnreadNotificationIds();
@@ -137,11 +138,18 @@ export const NotificationBar = () => {
   return (
     <>
       <div
-        className={cn(classes.root, "flex items-center justify-between flex-nowrap")}
+        className={cn(classes.root, 'flex flex-nowrap items-center justify-between')}
         onClick={() => {
           setBarUncollapsed((curr) => !curr);
         }}
       >
+        {time && (
+          <Grid item className={classes.item}>
+            <Typography className={classes.text} variant="button">
+              {time}
+            </Typography>
+          </Grid>
+        )}
         <Grid container item wrap="nowrap">
           {unreadNotifications &&
             unreadNotifications
@@ -150,19 +158,37 @@ export const NotificationBar = () => {
                 return <IconUnreadGrid tgtNoti={notification} key={idx} />;
               })}
         </Grid>
-        {time && (
-          <Grid item className={classes.item}>
-            <Typography className={classes.text} variant="button">
-              {time}
-            </Typography>
-          </Grid>
-        )}
+        
         <div className="flex items-center justify-end">
           <div>
-            <SignalMedium />
+            <svg
+              width="19"
+              height="13"
+              viewBox="0 0 19 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.5751 3.79376C10.5751 3.24192 11.0224 2.79456 11.5743 2.79456H12.5735C13.1253 2.79456 13.5727 3.24192 13.5727 3.79376V11.7874C13.5727 12.3393 13.1253 12.7866 12.5735 12.7866H11.5743C11.0224 12.7866 10.5751 12.3393 10.5751 11.7874V3.79376Z"
+                fill="white"
+              />
+              <path
+                d="M15.5711 1.79535C15.5711 1.2435 16.0185 0.796143 16.5703 0.796143H17.5695C18.1214 0.796143 18.5687 1.2435 18.5687 1.79535V11.7874C18.5687 12.3393 18.1214 12.7866 17.5695 12.7866H16.5703C16.0185 12.7866 15.5711 12.3393 15.5711 11.7874V1.79535Z"
+                fill="white"
+              />
+              <path
+                d="M5.57904 7.29099C5.57904 6.73914 6.0264 6.29178 6.57825 6.29178H7.57746C8.1293 6.29178 8.57666 6.73914 8.57666 7.29099V11.7874C8.57666 12.3393 8.1293 12.7866 7.57746 12.7866H6.57825C6.0264 12.7866 5.57904 12.3393 5.57904 11.7874V7.29099Z"
+                fill="white"
+              />
+              <path
+                d="M0.583008 9.78901C0.583008 9.23716 1.03037 8.7898 1.58221 8.7898H2.58142C3.13327 8.7898 3.58063 9.23716 3.58063 9.78901V11.7874C3.58063 12.3393 3.13327 12.7866 2.58142 12.7866H1.58221C1.03037 12.7866 0.583008 12.3393 0.583008 11.7874V9.78901Z"
+                fill="white"
+              />
+            </svg>
           </div>
-          <div className="mt-1.5 text-green-300">
-            <BatteryFull />
+          <div className="ml-3 w-8">
+            {/* <BatteryFull /> */}
+            <img src={batteryImg}></img>
           </div>
         </div>
       </div>
@@ -172,7 +198,7 @@ export const NotificationBar = () => {
             {unreadNotificationIds?.length !== 0 && (
               <Box pl={2}>
                 <Button color="primary" size="small" onClick={handleClearNotis}>
-                  Clear all notification
+                  Limpar notificações
                 </Button>
               </Box>
             )}
