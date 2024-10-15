@@ -23,7 +23,7 @@
 .PhoneScreen {
   overflow: hidden;
   position: absolute;
-  background-color: #fff;
+  background-color: #f2f2f7;
   bottom: 100px;
   left: 50px;
   right: 50px;
