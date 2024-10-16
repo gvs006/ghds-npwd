@@ -15,7 +15,7 @@ export const PhoneThemes: Record<string, ThemeOptions> = {
     palette: {
       mode: 'dark',
       primary: {
-        main: '#a6d4fa',
+        main: '#e4af0a',
       },
       text: {
         primary: 'rgba(255, 255, 255, 0.9)',
@@ -31,7 +31,7 @@ export const PhoneThemes: Record<string, ThemeOptions> = {
     palette: {
       mode: 'light',
       primary: {
-        main: '#607D8B',
+        main: '#e4af0a',
       },
       text: {
         primary: 'rgba(0, 0, 0, 0.9)',

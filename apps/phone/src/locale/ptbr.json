@@ -178,6 +178,8 @@
       "DISLIKE": "Dislike"
     },
     "NOTES": {
+      "NOTE_SINGLE": "Nota",
+      "NOTE_PLURAL": "Notas",
       "FEEDBACK": {
         "NO_NOTES": "Você não tem notas",
         "ADD_FAILED": "Falha ao salvar a nota.",

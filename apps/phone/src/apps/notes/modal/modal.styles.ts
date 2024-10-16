@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
   modalRoot: {
     zIndex: 20,
     position: 'absolute',
-    height: '99%',
+    height: '100%',
     width: '100%',
     background: theme.palette.background.default,
   },

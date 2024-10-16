@@ -14,7 +14,17 @@ const useStyles = makeStyles((theme) => ({
   absolute: {
     position: 'absolute',
     right: theme.spacing(3),
-    bottom: theme.spacing(5),
+    bottom: theme.spacing(0),
+  },
+  fabButton: {
+    backgroundColor: 'transparent',
+    boxShadow: 'none', // Remove sombra
+    color: theme.palette.primary.main,
+    fontSize: '24px',
+    '&:hover': {
+      backgroundColor: 'transparent',
+      opacity: 0.9,
+    },
   },
 }));
 
