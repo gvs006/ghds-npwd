@@ -33,11 +33,13 @@ import { useNotification } from '../useNotification';
 import batteryImg from '../../../apps/imgs/battery.png';
 import batteryDark from '../../../apps/imgs/battery-dark.png';
 import { cn } from '@utils/css';
+import { IoIosCloseCircle } from '@react-icons/all-files/io/IoIosCloseCircle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: 'transparent',
-    height: '50px',
+    marginTop: '20px',
+    height: '30px',
     width: '100%',
     color: theme.palette.text.primary,
     zIndex: 99,
@@ -48,8 +50,23 @@ const useStyles = makeStyles((theme) => ({
       cursor: 'pointer',
     },
   },
-  item: {
-    margin: '0 6px',
+  drawer: {
+    backgroundColor: 'transparent',
+    width: '92%',
+    position: 'absolute',
+    left: '4%',
+    top: '50px',
+    zIndex: 98,
+    borderRadius: '20px', // Cantos arredondados
+    boxShadow: 'none',
+    // boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)', // Leve sombra
+  },
+  paper: {
+    borderRadius: '15px',
+    marginBottom: '10px',
+    padding: '15px',
+    // boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    backgroundColor: theme.palette.mode === 'dark' ? '#333' : '#fff', // Ajuste dinâmico de cor
   },
   text: {
     position: 'relative',
@@ -60,23 +77,12 @@ const useStyles = makeStyles((theme) => ({
     padding: '4px',
     color: theme.palette.text.primary,
   },
-  drawer: {
-    backgroundColor: theme.palette.background.default,
-    width: '100%',
-    position: 'absolute',
-    top: '50px',
-    zIndex: 98,
-  },
-  closeNotifBtn: {
-    position: 'absolute',
-    right: '8px',
-    top: '8px',
-  },
-  notificationItem: {
-    position: 'relative',
-  },
   collapseBtn: {
     margin: '0 auto',
+  },
+  timeText: {
+    fontSize: '18px', // Tamanho maior para o texto do horário
+    fontWeight: 500, // Mais próximo ao estilo do iOS
   },
 }));
 
@@ -118,7 +124,7 @@ export const NotificationBar = () => {
   const classes = useStyles();
   const time = usePhoneTime();
   const theme = useTheme();
-  // const time = "14:22"; //  mock dev ghds
+  // const time = '04:20'; //  mock dev ghds
 
   const [barCollapsed, setBarUncollapsed] = useNavbarUncollapsed();
 
@@ -198,36 +204,46 @@ export const NotificationBar = () => {
         </div>
       </div>
       <Slide direction="down" in={barCollapsed} mountOnEnter unmountOnExit>
-        <Paper square className={classes.drawer}>
-          <Box py={1}>
-            {unreadNotificationIds?.length !== 0 && (
-              <Box pl={2}>
-                <Button color="primary" size="small" onClick={handleClearNotis}>
-                  Limpar notificações
-                </Button>
-              </Box>
-            )}
-            <List>
-              <Divider />
-              {unreadNotificationIds &&
-                unreadNotificationIds
-                  .filter((val, idx, self) => idx === self.findIndex((t: string) => t === val))
-                  .map((notification, idx) => (
-                    <UnreadNotificationListItem key={idx} tgtNotiId={notification} />
-                  ))}
-            </List>
-          </Box>
-          <Box display="flex" flexDirection="column">
-            {!unreadNotificationIds.length && <NoNotificationText />}
-            <IconButton
-              className={classes.collapseBtn}
-              size="small"
-              onClick={() => setBarUncollapsed(false)}
-            >
-              <ArrowDropUpIcon />
-            </IconButton>
-          </Box>
-        </Paper>
+        <div
+          style={{
+            height: '100%',
+            position: 'absolute',
+            width: '100%',
+            zIndex: 1,
+            // backgroundColor: theme.palette.mode === 'dark' ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.8)',
+          }}
+        >
+          <Paper square className={classes.drawer}>
+            <Box py={1}>
+              {unreadNotificationIds?.length !== 0 && (
+                <Box pl={2}>
+                  <Button color="inherit" size="small" onClick={handleClearNotis}>
+                    {/* <IoIosCloseCircle fontSize={'24px'} color=""></IoIosCloseCircle> */}
+                    Limpar
+                  </Button>
+                </Box>
+              )}
+              <List>
+                {unreadNotificationIds &&
+                  unreadNotificationIds
+                    .filter((val, idx, self) => idx === self.findIndex((t: string) => t === val))
+                    .map((notification, idx) => (
+                      <UnreadNotificationListItem key={idx} tgtNotiId={notification} />
+                    ))}
+              </List>
+            </Box>
+            <Box display="flex" flexDirection="column">
+              {!unreadNotificationIds.length && <NoNotificationText />}
+              <IconButton
+                className={classes.collapseBtn}
+                size="small"
+                onClick={() => setBarUncollapsed(false)}
+              >
+                <ArrowDropUpIcon />
+              </IconButton>
+            </Box>
+          </Paper>
+        </div>
       </Slide>
     </>
   );
