@@ -5,8 +5,8 @@ import { Box, styled } from '@mui/material';
 
 const HomeButton = styled(Box)`
   width: 145px;
-  height: 7px;
-  background-color: #ccc;
+  height: 6px;
+  background-color: #363636;
   border-radius: 0.5rem;
   position: fixed;
   top: 882px;
@@ -17,7 +17,7 @@ const HomeButton = styled(Box)`
   transition: background-color 0.2s ease-in-out;
 
   &:hover{
-    background-color: #999;
+    background-color: #0a0a0a;
   }
 `
 
@@ -49,7 +49,7 @@ export const Navigation: React.FC = () => {
   return (
     <>
       { isVisible &&
-        <button className="text-neutral-400 hover:dark:text-neutral-100 h-2 w-full hover:text-neutral-900 " onClick={handleGoToMenu}>
+        <button className="text-black hover:dark:text-neutral-900 h-2 w-full hover:text-neutral-900 " onClick={handleGoToMenu}>
         <HomeButton />
         </button>
       }

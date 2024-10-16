@@ -50,7 +50,6 @@ export const NotesApp: React.FC = () => {
           </React.Suspense>
         </AppContent>
         
-        {/* Adicionando contagem de notas */}
         <Box sx={{ textAlign: 'center', paddingY: '16px' }}>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             {notes.length} {notes.length === 1 ? 'Nota' : 'Notas'}
