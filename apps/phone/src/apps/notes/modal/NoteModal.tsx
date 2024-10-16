@@ -1,13 +1,14 @@
 import { Box, Slide, Paper, Typography, Container } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import React, { useEffect, useState, useRef } from 'react';
+import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import useStyles from './modal.styles';
 import { useTranslation } from 'react-i18next';
 import { useModalVisible, useSelectedNote } from '../hooks/state';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useNotesAPI } from '../hooks/useNotesAPI';
 import { useTheme } from '@mui/material';
-import { RiDeleteBin2Line } from "@react-icons/all-files/ri/RiDeleteBin2Line";
+import { RiDeleteBin2Line } from '@react-icons/all-files/ri/RiDeleteBin2Line';
+import { RiEditBoxLine } from "@react-icons/all-files/ri/RiEditBoxLine";
 
 export const NoteModal: React.FC = () => {
   const classes = useStyles();
@@ -22,6 +23,8 @@ export const NoteModal: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
 
+  const titleRef = useRef<HTMLTextAreaElement | null>(null);
+
   const isNewNote = !Boolean(selectedNote?.id);
 
   useEffect(() => {
@@ -30,6 +33,17 @@ export const NoteModal: React.FC = () => {
       setNoteTitle(selectedNote.title);
     }
   }, [selectedNote]);
+
+  useEffect(() => {
+    if (titleRef.current) {
+      adjustHeight(titleRef.current);
+    }
+  }, [noteTitle]);
+
+  const adjustHeight = (element: HTMLTextAreaElement) => {
+    element.style.height = 'auto'; // Reseta a altura para recalcular
+    element.style.height = `${element.scrollHeight}px`; // Ajusta a altura com base no conteúdo
+  };
 
   const handleDeleteNote = () => {
     deleteNote({ id: selectedNote.id })
@@ -85,14 +99,17 @@ export const NoteModal: React.FC = () => {
     >
       <Paper className={classes.modalRoot} square elevation={0} sx={{ padding: '16px' }}>
         <Container>
-          {/* Header com o botão de voltar e o botão de Concluído/Salvar */}
           <Box display="flex" alignItems="center" justifyContent="space-between" mb={2}>
             <Box
               onClick={_handleClose}
               sx={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}
             >
-              <ArrowBackIcon
-                style={{ color: phoneTheme.palette.primary.main, marginRight: '8px' }}
+              <ArrowBackIosNewRoundedIcon
+                style={{
+                  color: phoneTheme.palette.primary.main,
+                  marginRight: '2px',
+                  marginLeft: '-25px',
+                }}
               />
               <Typography variant="body1" color="primary">
                 {t('APPS_NOTES')}
@@ -106,6 +123,7 @@ export const NoteModal: React.FC = () => {
                 fontWeight: 'lighter',
                 fontSize: '16px',
                 opacity: noteTitle.length === 0 ? 0.5 : 1,
+                marginRight: '-10px',
               }}
             >
               {isNewNote ? t('GENERIC_SAVE') : t('GENERIC_DONE')}
@@ -113,19 +131,28 @@ export const NoteModal: React.FC = () => {
           </Box>
           {/* Campos de título e conteúdo da nota */}
           <Box mb={2}>
-            <input
+            <textarea
+              ref={titleRef}
               className={classes.input}
+              rows={1} // Começa com uma linha
               placeholder="Título"
-              maxLength={25}
+              maxLength={30} // Aumentei o limite para permitir um título maior
               value={noteTitle}
-              onChange={handleTitleChange}
+              onChange={(e) => {
+                handleTitleChange(e);
+                if (e.target) {
+                  adjustHeight(e.target as HTMLTextAreaElement);
+                }
+              }}
               style={{
                 width: '100%',
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
                 border: 'none',
                 outline: 'none',
+                resize: 'none', // Não permite ao usuário redimensionar manualmente
                 marginBottom: '8px',
+                overflow: 'hidden', // Evita barras de rolagem
               }}
             />
             <textarea
@@ -151,7 +178,7 @@ export const NoteModal: React.FC = () => {
           {/* Ícone de lixeira na parte inferior */}
           {!isNewNote && (
             <Box
-            className={`${classes.absolute} ${classes.fabButton}`}
+              className={`${classes.absoluteLeft}`}
               onClick={handleDeleteNote}
               sx={{
                 cursor: 'pointer',
@@ -167,6 +194,8 @@ export const NoteModal: React.FC = () => {
               <RiDeleteBin2Line />
             </Box>
           )}
+          <RiEditBoxLine className={`${classes.absoluteRight} ${classes.button}`}>
+          </RiEditBoxLine>
         </Container>
       </Paper>
     </Slide>

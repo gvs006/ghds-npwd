@@ -1,4 +1,7 @@
+import { Opacity } from '@mui/icons-material';
+import shadows from '@mui/material/styles/shadows';
 import makeStyles from '@mui/styles/makeStyles';
+import { Pointer } from 'lucide-react';
 
 const useStyles = makeStyles((theme) => ({
   backgroundModal: {
@@ -13,17 +16,17 @@ const useStyles = makeStyles((theme) => ({
   },
   absolute: {
     position: 'absolute',
-    right: theme.spacing(3),
-    bottom: theme.spacing(0),
+    right: theme.spacing(4),
+    bottom: theme.spacing(2.0),
+    zIndex: 1,
   },
-  fabButton: {
+  button: {
     backgroundColor: 'transparent',
     boxShadow: 'none', // Remove sombra
     color: theme.palette.primary.main,
     fontSize: '24px',
     '&:hover': {
-      backgroundColor: 'transparent',
-      opacity: 0.9,
+      cursor: 'pointer',
     },
   },
 }));

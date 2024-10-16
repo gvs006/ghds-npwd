@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     background: 'white',
     top: '-10%',
-    paddingTop: '18%',
+    paddingTop: '25%',
   },
   input: {
     marginBottom: 20,
@@ -20,11 +20,25 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 20,
     lineHeight: 1.2,
   },
-  absolute: {
+  absoluteLeft: {
     position: 'absolute',
     left: theme.spacing(4),
     bottom: theme.spacing(6.5),
-  }
+  },
+  absoluteRight: {
+    position: 'absolute',
+    right: theme.spacing(4),
+    bottom: theme.spacing(6.5),
+  },
+  button: {
+    backgroundColor: 'transparent',
+    boxShadow: 'none', // Remove sombra
+    color: '#ccc',
+    fontSize: '24px',
+    '&:hover': {
+      cursor: 'default',
+    },
+  },
 }));
 
 export default useStyles;

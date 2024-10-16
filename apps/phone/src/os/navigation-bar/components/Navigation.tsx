@@ -15,6 +15,7 @@ const HomeButton = styled(Box)`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  z-index: 1000;
 
   &:hover{
     background-color: #0a0a0a;

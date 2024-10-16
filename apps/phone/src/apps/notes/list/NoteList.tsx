@@ -101,17 +101,18 @@ const NoteList = () => {
   return (
     <Box
       display="flex"
-      justifyContent="center"
+      justifyContent="top"
       alignItems="center"
       flexDirection="column"
       height="100%"
+      marginTop={'16px'}
     >
       <Typography
         color="inherit"
-        variant="h6"
+        variant="subtitle2"
         style={{ fontWeight: 300, color: phoneTheme.palette.text.primary }}
       >
-        Sem notas disponíveis
+        Nenhuma anotação disponível
       </Typography>
     </Box>
   );

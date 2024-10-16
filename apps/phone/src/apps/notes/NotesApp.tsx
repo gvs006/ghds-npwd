@@ -56,10 +56,17 @@ export const NotesApp: React.FC = () => {
           </Typography>
         </Box>
         
-        <Fab className={`${classes.absolute} ${classes.fabButton}`} onClick={onClickCreate}>
-          <RiEditBoxLine />
-        </Fab>
+        <RiEditBoxLine className={`${classes.absolute} ${classes.button}`} onClick={onClickCreate}>
+        </RiEditBoxLine>
       </AppWrapper>
     </NotesThemeProvider>
   );
 };
+
+// v2.0:
+// Redesign finalizado
+
+// Futuras implementações?
+// Adicionar Data
+// Adicionar Buscar
+// Adicionar Emojis
