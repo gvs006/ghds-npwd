@@ -65,6 +65,8 @@ export const NotesApp: React.FC = () => {
 
 // v2.0:
 // Redesign finalizado
+// 2.1:
+// Correção do darkmode
 
 // Futuras implementações?
 // Adicionar Data

@@ -6,12 +6,13 @@ const useStyles = makeStyles((theme) => ({
     position: 'absolute',
     height: '115%',
     width: '100%',
-    background: 'white',
+    background: theme.palette.mode === 'dark' ? 'black' : 'white', // Branco no modo claro, preto no modo escuro
     top: '-10%',
     paddingTop: '25%',
   },
   input: {
     marginBottom: 20,
+    background: theme.palette.mode === 'dark' ? 'black' : 'white', // Branco no modo claro, preto no modo escuro
   },
   inputPropsTitle: {
     fontSize: 28,
