@@ -9,7 +9,7 @@ const useStyles = makeStyles<Theme, { color: string; backgroundColor: string }>(
   root: {
     padding: 0,
     background: 'transparent',
-    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -40,7 +40,7 @@ const useStyles = makeStyles<Theme, { color: string; backgroundColor: string }>(
     height: theme.spacing(7.2),
   },
   name: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(0.5),
     fontSize: '12px',
     color: 'white',
     weight: 'bold',
