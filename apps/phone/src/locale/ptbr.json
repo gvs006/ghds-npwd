@@ -74,6 +74,8 @@
       "FAILED_TO_TAKE_PHOTO": "A foto não pôde ser salva :("
     },
     "CONTACTS": {
+      "MY_NUMBER": "Meu número",
+      "NEARBY_SHARE": "Compartilhar por proximidade",
       "FEEDBACK": {
         "ADD_FAILED": "Falha ao criar contato!",
         "ADD_SUCCESS": "Contato criado com sucesso!",
@@ -81,8 +83,8 @@
         "UPDATE_SUCCESS": "Contato atualizado com sucesso!",
         "DELETE_FAILED": "Falha ao excluir contato!",
         "DELETE_SUCCESS": "Contato excluído com sucesso!",
-        "PAYMENTFAILED": "The payment failed!",
-        "PAYMENTSENT": "The payment sent!"
+        "PAYMENTFAILED": "O pagamento falhou!",
+        "PAYMENTSENT": "Pagamento enviado!"
       },
       "AMOUNT": "How Much?",
       "SENDMONEY": "Send Money",
