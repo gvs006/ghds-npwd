@@ -36,7 +36,7 @@ const useStyles = makeStyles<Theme, { color: string; backgroundColor: string }>(
   },
   icon: {
     fontSize: theme.typography.h4.fontSize,
-    width: theme.spacing(7.2), // Ajuste do tamanho do ícone
+    width: theme.spacing(7.2),
     height: theme.spacing(7.2),
   },
   name: {
@@ -47,8 +47,9 @@ const useStyles = makeStyles<Theme, { color: string; backgroundColor: string }>(
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
-    maxWidth: '80px', // Largura máxima para garantir que o texto não ultrapasse o contêiner
-    textAlign: 'center', // Centraliza o texto no contêiner
+    maxWidth: '80px',
+    textAlign: 'center', 
+    textShadow: '1px 1px 1px rgba(0, 0, 0, 0.3)',
   },
 }));
 

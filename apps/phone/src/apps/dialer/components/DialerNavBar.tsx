@@ -64,7 +64,7 @@ const DialerNavBar: React.FC = () => {
       className={classes.root}
     >
       <BottomNavigationAction
-        label={t('Recents')}
+        label={t('DIALER.NAVBAR_HISTORY')}
         value="/phone"
         component={NavLink}
         to="/phone"
@@ -78,7 +78,7 @@ const DialerNavBar: React.FC = () => {
         }}
       />
       <BottomNavigationAction
-        label={t('Keypad')}
+        label={t('DIALER.NAVBAR_DIAL')}
         value="/phone/dial"
         component={NavLink}
         to="/phone/dial"
@@ -92,7 +92,7 @@ const DialerNavBar: React.FC = () => {
         }}
       />
       <BottomNavigationAction
-        label={t('Contacts')}
+        label={t('DIALER.NAVBAR_CONTACTS')}
         value="/phone/contacts"
         component={NavLink}
         to="/phone/contacts"

@@ -102,8 +102,8 @@
         "TRANSMITTER_IS_CALLING": "{{ transmitter }} esta te ligando!"
       },
       "INPUT_PLACEHOLDER": "Digite um número",
-      "NAVBAR_HISTORY": "Histórico",
-      "NAVBAR_DIAL": "Discar",
+      "NAVBAR_HISTORY": "Recentes",
+      "NAVBAR_DIAL": "Teclado",
       "NAVBAR_CONTACTS": "Contatos",
       "NO_HISTORY": "Você não tem histórico de chamadas"
     },
