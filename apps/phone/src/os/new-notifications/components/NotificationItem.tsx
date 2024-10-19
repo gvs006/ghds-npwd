@@ -35,6 +35,7 @@ export const NotificationItem: React.FC<NotificationItemProps> = ({ id, key }) =
         borderRadius: '20px',
         boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
         opacity: '0.94',
+        marginBottom: '10px',
         '&:hover': {
           cursor: 'pointer',
           backgroundColor: theme.palette.mode === 'dark' ? '#333' : '#fff',

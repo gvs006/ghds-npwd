@@ -13,6 +13,10 @@ const MatchIconStyle = styled(Box)`
     transform: scale(1.05);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
   }
+  
+  img {
+    border-radius: 14px;
+  }
 `;
 const MatchIcon: React.FC = () => 
 <MatchIconStyle>
